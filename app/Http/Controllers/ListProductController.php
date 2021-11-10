@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 class ListProductController extends Controller
 {
@@ -25,6 +27,7 @@ class ListProductController extends Controller
      */
     public function create()
     {
+        
         return view('backend/Lproduct/create');
     }
 
@@ -36,7 +39,29 @@ class ListProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cate = DB::table('db_category')->where('name',$request->cateName)->first();
+        if($cate==null)
+        {
+            $data = new Category;
+            $data->name = $request->cateName;
+            $data->link = $request->cateName;
+            $data->level = 1;
+            $data->parentid = 0;
+            $data->orders = 1;
+            $data->created_at = Carbon::now();
+            $data->created_by = 1;
+            $data->updated_at = Carbon::now();
+            $data->updated_by = 2;
+            $data->trash = 1;
+            $data->status = 1;
+            $data->save();
+            return redirect()->action([ListProductController::class,'index'])->with('success',"Danh mục đã thêm thành công");
+        }
+        else
+        {
+            return redirect()->action([ListProductController::class,'create'])->with('error',"Danh mục đã tồn tại");
+        }
+        
     }
 
     /**
@@ -70,7 +95,7 @@ class ListProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
     }
 
     /**
@@ -81,6 +106,8 @@ class ListProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Category::find($id);
+        $data->delete();
+        return redirect()->action([ListProductController::class,'index'])->with('success',"Danh mục đã xóa");  
     }
 }

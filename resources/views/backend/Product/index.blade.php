@@ -78,10 +78,10 @@
                                             </td>
                                             <td>
                                                 <a href="/admin/product/edit/{{ $item->id }}"> <button type="button"
-                                                        class="btn-success">Sửa
+                                                        class="btn btn-success">Sửa
                                                     </button></a>
                                                 <a href="/admin/product/delete/{{ $item->id }}"><button
-                                                        class="btn-success"
+                                                        class="btn btn-danger"
                                                         onclick="return confirm('Xác nhận xóa sản phẩm này ?')">Xóa</button></a>
                                             </td>
                                         </tr>

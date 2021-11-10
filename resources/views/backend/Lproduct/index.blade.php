@@ -33,7 +33,7 @@
                 @include('backend.component.topbar')
                 <div class="container-fluid">
                     <h1 class="h3 mb-4 text-gray-800">Quản lí loại sản phẩm </h1>
-
+                    @include('backend.component.flash-message')
                     <div class="d-add"><a href="{{ route('lproduct.create') }}"><button type="button"
                                 class="btn btn-primary">Thêm mới</button></a></div>
                     <div class="___class_+?5___">
@@ -54,13 +54,15 @@
                                         <tr>
                                             <td>{{ $item->id }} </td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->level }}</td>
+                                            <td>{{ $item->parentid }}</td>
                                             <td>{{ $item->created_at }}</td>
                                             <td></td>
 
                                             <td>
                                                 <button type="button" class="btn-success"> Xem</button>
-                                                <button type="button" class=" btn-danger"> Xóa</button>
+                                                <a href="/admin/Lproduct/delete/{{ $item->id }}"><button
+                                                        class="btn btn-danger"
+                                                        onclick="return confirm('Xác nhận xóa sản phẩm này ?')">Xóa</button></a>
                                             </td>
                                         </tr>
 

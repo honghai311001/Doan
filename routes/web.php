@@ -49,6 +49,8 @@ Route::get('adlogin', function () {
 
 Route::get('admin/Lproduct',[ListProductController::class,'index'])->name('lproduct.index');
 Route::get('admin/Lproduct/create',[ListProductController::class,'create'])->name('lproduct.create');
+Route::post('admin/Lproduct/store',[ListProductController::class,'store']);
+Route::get('admin/Lproduct/delete/{id}',[ListProductController::class,'destroy']);
 
 
 Route::get('admin/producer', [ProducerController::class,'index'])->name('producer.index');

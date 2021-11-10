@@ -29,7 +29,7 @@ class LoginController extends Controller
         if(session::has('nguoi-dung'))
         {
             session::forget('nguoi-dung');
-           
+            session::forget('Cart');
             return redirect()->action([IndexController::class,'index']);
         }
     }
@@ -46,8 +46,8 @@ class LoginController extends Controller
         $user = DB::table('db_user')->where('username', '=', $request->userName)->where('password', '=', md5($request->password))->first();
         if($user!=null){        
             $request = Session::put('admin',$user);
-                // return redirect()->action([LoginController::class,'AdminDB']) ;
-                return view('backend/dashboard');       
+                return redirect()->action([LoginController::class,'AdminDB']) ;
+                // return view('backend/dashboard');       
         }
         else{
             return redirect()->action([LoginController::class,'AdminIndex'])->with('error',"Sai tài khoản mật khẩu");
