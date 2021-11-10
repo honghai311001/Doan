@@ -6,8 +6,11 @@
             <!-- NAV -->
             <ul class="main-nav nav navbar-nav">
                 <li class="active"><a href="#">Trang chủ</a></li>
-                <li><a href="/category/3">Điện thoại</a></li>
-                <li><a href="/category/4">Laptop</a></li>
+                @foreach ($category as $item)
+                    <li><a href="/category/{{ $item->id }}">{{ $item->name }}</a></li>
+                @endforeach
+
+
                 <li><a href="#">Liên hệ</a></li>
 
             </ul>

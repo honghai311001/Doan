@@ -9,8 +9,9 @@ class FeProductController extends Controller
 {
     public function show($id)
     {
+        $category = DB::table('db_category')->select('*')->get();
         $items = DB::table('db_product')->where('id', $id)->get();
-         return view('fontend/Product-info',compact('items'));
+         return view('fontend/Product-info',compact('items','category'));
         
     }
 }

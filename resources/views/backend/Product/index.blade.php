@@ -48,7 +48,7 @@
                                         <th>ID</th>
                                         <th>Hình</th>
                                         <th>Tên sản phẩm</th>
-                                        <th>Số lượng trong kho</th>
+                                        <th>Số lượng </th>
                                         <th>Loại sản phẩm</th>
                                         <th>Trạng thái</th>
                                         <th>Nhập hàng</th>
@@ -70,15 +70,15 @@
                                             <td>
                                                 {{ $item->catid }}
                                             </td>
-                                            <td>
-                                                {{ $item->status }}
+                                            <td style="width: 60px">
+
                                             </td>
                                             <td>
                                                 <button type="button" class="btn-info"> nhập hàng</button>
                                             </td>
                                             <td>
-                                                <a href="/admin/product/edit/{{ $item->id }}"> <button
-                                                        type="button" class="btn-success">Sửa
+                                                <a href="/admin/product/edit/{{ $item->id }}"> <button type="button"
+                                                        class="btn-success">Sửa
                                                     </button></a>
                                                 <a href="/admin/product/delete/{{ $item->id }}"><button
                                                         class="btn-success"

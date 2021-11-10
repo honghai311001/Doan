@@ -18,8 +18,9 @@ class ProductController extends Controller
     public function index()
     {
         // $items = DB::table('db_product')->select('*')->get();
+        $category = DB::table('db_category')->select('*')->get();
         $items = DB::table('db_product')->orderBy('id','DESC')->paginate(6); 
-        return view('backend/Product/index',compact('items'));
+        return view('backend/Product/index',compact('items','category'));
     }
 
     /**

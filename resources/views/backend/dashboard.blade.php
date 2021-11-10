@@ -35,7 +35,7 @@
                     <div class="container-fluid">
                         @include('backend.component.content')
                     </div>
-                    @include('backend.component.footer')
+
                 </div>
 
 

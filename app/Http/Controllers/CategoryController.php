@@ -10,7 +10,8 @@ class CategoryController extends Controller
 {
     public function indexCategory($id)
     {
+        $category = DB::table('db_category')->select('*')->get();
         $items = DB::table('db_product')->where('catid',$id)->get();
-        return view('fontend/modules/category/category',compact('items'));
+        return view('fontend/modules/category/category',compact('items','category'));
     }
 }

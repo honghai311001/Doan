@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
  public function index(){
-     return view('fontend/cart');
+    $category = DB::table('db_category')->select('*')->get();
+     return view('fontend/cart',compact('category'));
  }
  public function AddCart(Request $req, $id)
  {

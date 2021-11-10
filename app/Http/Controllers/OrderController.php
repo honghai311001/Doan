@@ -16,7 +16,8 @@ class OrderController extends Controller
 {
     public function index()
     {
-        return view('fontend/Checkout');
+        $category = DB::table('db_category')->select('*')->get();
+        return view('fontend/Checkout',compact('category'));
     }
     public function saveOrder(Request $request)
     {
@@ -73,18 +74,18 @@ class OrderController extends Controller
         $user = $req->session()->get('nguoi-dung');
         // $items = DB::table('db_product')->orderBy('id','DESC')->paginate(6); 
         $items = DB::table('db_order')->where('customerid', $user->id )->orderBy('id','DESC')->get();
-       
+        $category = DB::table('db_category')->select('*')->get();
         
-        return view('fontend/Order/trackOrder',compact('items'));
+        return view('fontend/Order/trackOrder',compact('items','category'));
     }
     public function TrackOrderInfo($id)
     {
         // $user = $req->session()->get('nguoi-dung');
         // $items = DB::table('db_product')->orderBy('id','DESC')->paginate(6); 
-       
+        $category = DB::table('db_category')->select('*')->get();
         $items = DB::table('db_orderdetail')->where('orderid', $id )->orderBy('orderid','DESC')
         ->leftJoin('db_product', 'db_orderdetail.productid', '=', 'db_product.id')
         ->get();
-        return view('fontend/Order/trackOrderInfo',compact('items'));
+        return view('fontend/Order/trackOrderInfo',compact('items','category'));
     }
 }

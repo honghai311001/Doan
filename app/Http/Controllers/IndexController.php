@@ -12,7 +12,7 @@ class IndexController extends Controller
  
    public function index()  
    {
-      $category = DB::table('db_category')->where('level',1)->get();
+      $category = DB::table('db_category')->select('*')->get();
       $items = Product::paginate(6);     
    return view('/fontend/index',compact('items','category'));
   

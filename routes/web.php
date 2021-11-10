@@ -38,7 +38,7 @@ Route::get('/san-pham/{name}',[FeProductController::class,'show']);
 
 // backend
 Route::get('/admin',[LoginController::class,'AdminIndex'])->name('admin.index');
-Route::post('/AdminLogin',[LoginController::class,'AdminLogin']);
+Route::post('/AdminLogin',[LoginController::class,'AdminLogin'])->name('admin.login');
 Route::get('/DashBoard',[LoginController::class,'AdminDB']);
 Route::get('adlogin', function () {
     return view('backend/Login/login');
