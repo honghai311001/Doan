@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+table {
+    width: 100%;
+}
+table,
+th,
+td {
+    border: 1px solid black;
+}
+td img {
+    height: 90px;
+    width: 90px;
+}
+th,
+td {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    padding: 8px 10px;
+    font-size: 14px;
+}
+thead tr {
+    background-color: rgb(125, 170, 238);
+    color: rgb(60, 51, 70);
+}
+/* tr:nth-child(even){
+    background-color:#afafb3;
+}
+tbody tr:nth-child(odd){
+    background-color:#dddddf;
+} */
+
+td button {
+    margin: 0;
+    padding: 5px 20px;
+    border-radius: 3px;
+}
+tr,
+td {
+    max-width: 250px;
+}
+.d-add {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 20px 20px;
+}
+
+.box-body {
+    background-color: rgb(207, 236, 236);
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+.content-header {
+    display: flex;
+    flex-direction: column;
+}
+.content-header > div:nth-child(2) {
+    margin-left: auto;
+}
+.content-header button {
+    padding: 8px 20px;
+    margin: 5px 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+}
+.content-header > div > button:first-child {
+    background-color: rgb(53, 51, 199);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.content-header > div > button:last-child {
+    background-color: rgb(204, 55, 55);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.box-body > div:first-child {
+    width: 60%;
+}
+.box-body > div:nth-child(2) {
+    width: 35%;
+}
+h4:not(:first-child) {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.box-body > div > input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+}
+.pagi {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
