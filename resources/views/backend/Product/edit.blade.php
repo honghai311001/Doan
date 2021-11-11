@@ -99,14 +99,14 @@
                                     <h6>Giá bán </h6>
                                     <input type="number" name="price_buy" value="{{ $items->price_sale }}">
                                     <h6>Số lượng</h6>
-                                    <input type="number" name="number" value="{{ $items->number_buy }}">
+                                    <input type="number" name="number" value="{{ $items->number }}">
 
                                     <h6>Trạng thái</h6>
                                     <select name="status" class="form-control">
                                         <option value="1" <?php if ($items->status == 1) {
     echo 'selected';
 } ?>>Kinh doanh</option>
-                                        <option value="0" <?php if ($items->status == 1) {
+                                        <option value="0" <?php if ($items->status == 0) {
     echo 'selected';
 } ?>>Chưa Kinh doanh</option>
                                     </select>

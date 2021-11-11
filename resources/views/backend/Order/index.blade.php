@@ -64,7 +64,8 @@
                                             @if ($item->status == 1)
                                                 <td>Chờ thanh toán</td>
                                                 <td><a href="/listOrder/thanhtoan/{{ $item->orderCode }}"><button
-                                                            type="button" class="btn btn-success">Thanh
+                                                            type="button" class="btn btn-success"
+                                                            onclick="return confirm('Xác nhận sản phẩm đã được thanh toán ?')">Thanh
                                                             toán</button></a></td>
                                                 <td>
 

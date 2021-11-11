@@ -56,10 +56,19 @@
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->parentid }}</td>
                                             <td>{{ $item->created_at }}</td>
-                                            <td></td>
+                                            <td style="width: 60px">
+                                                @if ($item->status == 1)
+                                                    <a href=""> <i class="far fa-check-circle fa-2x"
+                                                            style="color: green"></i></a>
+                                                @else
+                                                    <a href=""><i class="far fa-times-circle fa-2x"
+                                                            style="color:red "></i></a>
+                                                @endif
+
+                                            </td>
 
                                             <td>
-                                                <button type="button" class="btn-success"> Xem</button>
+                                                <button type="button" class="btn-success"> Sửa</button>
                                                 <a href="/admin/Lproduct/delete/{{ $item->id }}"><button
                                                         class="btn btn-danger"
                                                         onclick="return confirm('Xác nhận xóa sản phẩm này ?')">Xóa</button></a>

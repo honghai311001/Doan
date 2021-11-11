@@ -56,10 +56,19 @@
                                         <tr>
                                             <td>{{ $item->id }} </td>
                                             <td>{{ $item->code }}</td>
-                                            <td>{{ $item->discount }}</td>
+                                            <td>{{ number_format($item->discount) }} đ</td>
                                             <td>{{ $item->limit_number }}</td>
                                             <td>{{ $item->expiration_date }}</td>
-                                            <td></td>
+                                            <td style="width: 60px">
+                                                @if ($item->status == 1)
+                                                    <a href=""> <i class="far fa-check-circle fa-2x"
+                                                            style="color: green"></i></a>
+                                                @else
+                                                    <a href=""><i class="far fa-times-circle fa-2x"
+                                                            style="color:red "></i></a>
+                                                @endif
+
+                                            </td>
 
                                             <td>
                                                 <a href="/admin/discount/edit/{{ $item->id }}"> <button

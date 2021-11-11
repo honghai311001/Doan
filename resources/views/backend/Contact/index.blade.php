@@ -46,7 +46,7 @@
                                         <th>Địa chỉ mail</th>
                                         <th>Tiêu đề</th>
                                         <th>Trạng thái</th>
-                                        <th>Thao tác</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -57,7 +57,7 @@
                                             <td>{{ $item->created_at }}</td>
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->title }}</td>
-                                            <td></td>
+
 
                                             <td>
                                                 <button type="button" class="btn-success"> Xem</button>

@@ -71,6 +71,13 @@
                                                 {{ $item->catid }}
                                             </td>
                                             <td style="width: 60px">
+                                                @if ($item->status == 1)
+                                                    <a href=""> <i class="far fa-check-circle fa-2x"
+                                                            style="color: green"></i></a>
+                                                @else
+                                                    <a href=""><i class="far fa-times-circle fa-2x"
+                                                            style="color:red "></i></a>
+                                                @endif
 
                                             </td>
                                             <td>
