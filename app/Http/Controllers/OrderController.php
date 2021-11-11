@@ -48,7 +48,7 @@ class OrderController extends Controller
                 'orderid' => $id,
                 'productid' => $item['productInfo']->id,
                 'count'=>$item['quanty'],
-                'price'=>$item['price'],
+                'price'=>$item['productInfo']->price_sale,
                 'trash'=>1,
                 'status'=>1
             ]);
