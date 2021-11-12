@@ -46,6 +46,10 @@
                                 <div>
                                     <h6>Tên Danh Mục</h6>
                                     <input type="text" required name="cateName">
+                                    <h6>Trạng thái</h6>
+                                    <select name="status" class="form-control">
+                                        <option value="1">Kinh doanh</option>
+                                        <option value="0">Chưa Kinh doanh</option>
                                 </div>
                             </div>
                     </form>

@@ -51,6 +51,9 @@ Route::get('admin/Lproduct',[ListProductController::class,'index'])->name('lprod
 Route::get('admin/Lproduct/create',[ListProductController::class,'create'])->name('lproduct.create');
 Route::post('admin/Lproduct/store',[ListProductController::class,'store']);
 Route::get('admin/Lproduct/delete/{id}',[ListProductController::class,'destroy']);
+Route::get('admin/Lproduct/edit/{id}',[ListProductController::class,'edit']);
+Route::post('admin/Lproduct/update/{id}',[ListProductController::class,'update']);
+
 
 
 Route::get('admin/producer', [ProducerController::class,'index'])->name('producer.index');

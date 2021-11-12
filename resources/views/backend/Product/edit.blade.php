@@ -41,7 +41,7 @@
                         @method('PATCH')
                         @csrf
                         <div class="content-header">
-                            <h2>Thêm mới sản phẩm</h2>
+                            <h2>Sửa sản phẩm</h2>
 
                             <div>
                                 <button type="submit">Lưu</button>

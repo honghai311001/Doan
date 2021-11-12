@@ -43,7 +43,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Tên loại sản phẩm</th>
-                                        <th>Danh mục cha</th>
+
                                         <th>Ngày tạo</th>
                                         <th>Trạng thái</th>
                                         <th>Thao tác</th>
@@ -54,7 +54,7 @@
                                         <tr>
                                             <td>{{ $item->id }} </td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->parentid }}</td>
+
                                             <td>{{ $item->created_at }}</td>
                                             <td style="width: 60px">
                                                 @if ($item->status == 1)
@@ -68,7 +68,9 @@
                                             </td>
 
                                             <td>
-                                                <button type="button" class="btn-success"> Sửa</button>
+                                                <a href="/admin/Lproduct/edit/{{ $item->id }}"> <button
+                                                        type="button" class="btn-success">
+                                                        Sửa</button></a>
                                                 <a href="/admin/Lproduct/delete/{{ $item->id }}"><button
                                                         class="btn btn-danger"
                                                         onclick="return confirm('Xác nhận xóa sản phẩm này ?')">Xóa</button></a>

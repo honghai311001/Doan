@@ -53,7 +53,7 @@ class ListProductController extends Controller
             $data->updated_at = Carbon::now();
             $data->updated_by = 2;
             $data->trash = 1;
-            $data->status = 1;
+            $data->status = $request->status;
             $data->save();
             return redirect()->action([ListProductController::class,'index'])->with('success',"Danh mục đã thêm thành công");
         }
@@ -83,7 +83,8 @@ class ListProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $items = Category::find($id);
+        return view('backend/Lproduct/edit',compact('items'));
     }
 
     /**
@@ -95,7 +96,20 @@ class ListProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+       $data = Category::find($id);
+       $data->name = $request->cateName;
+       $data->link = $request->cateName;
+       $data->level = 1;
+       $data->parentid = 0;
+       $data->orders = 1;
+       $data->created_at = Carbon::now();
+       $data->created_by = 1;
+       $data->updated_at = Carbon::now();
+       $data->updated_by = 2;
+       $data->trash = 1;
+       $data->status = $request->status;
+       $data->save();
+       return redirect()->action([ListProductController::class,'index'])->with('success',"Danh mục đã sửa thành công");
     }
 
     /**
