@@ -40,7 +40,7 @@
                             <h2>Thêm Danh Mục Mới</h2>
                             <div>
                                 <button type="submit">Lưu</button>
-                                <a href="">Thoát</a>
+                                <a href="{{ route('lproduct.index') }}">Thoát</a>
                             </div>
                             <div class="box-body">
                                 <div>

@@ -32,7 +32,7 @@
             <div id="content">
                 @include('backend.component.topbar')
                 <div class="container-fluid">
-                    <h1 class="h3 mb-4 text-gray-800">Quản lí loại sản phẩm </h1>
+                    <h1 class="h3 mb-4 text-gray-800">Quản lí đơn hàng</h1>
 
 
                     <div class="___class_+?5___">
@@ -66,17 +66,26 @@
                                                 <td><a href="/listOrder/thanhtoan/{{ $item->orderCode }}"><button
                                                             type="button" class="btn btn-success"
                                                             onclick="return confirm('Xác nhận sản phẩm đã được thanh toán ?')">Thanh
-                                                            toán</button></a></td>
-                                                <td>
-
-                                                @else
-                                                <td> Đã giao</td>
-                                                <td></td>
-                                                <td>
+                                                            toán</button></a>
+                                                    <a href="/listOrder/huydon/{{ $item->id }}"><button
+                                                            type="button" class="btn btn-danger"
+                                                            onclick="return confirm('Xác nhận sản phẩm đã được thanh toán ?')">Hủy
+                                                            đơn</button></a>
+                                                </td>
                                             @endif
+                                            @if ($item->status == 2)
+                                                <td>Đã giao</td>
+                                                <td></td>
+                                            @endif
+                                            @if ($item->status == 0 || $item->status == 3 || $item->status == 4)
+                                                <td>Đã hủy</td>
+                                                <td></td>
+                                            @endif
+                                            <td style="text-align: left;">
+                                                <a href="/admin/order/oderdetail/{{ $item->id }}"> <button
+                                                        type="button" class="btn btn-primary">
+                                                        Xem</button></a>
 
-                                            <button type="button" class="btn btn-primary"> Xem</button>
-                                            <button type="button" class="btn btn-danger"> Xóa</button>
                                             </td>
                                         </tr>
 

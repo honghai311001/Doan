@@ -7,7 +7,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Danh sách sản phẩm</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"> 57 Sản phẩm </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ $product }} Sản phẩm </div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -23,7 +23,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Danh mục</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $category }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -42,7 +42,8 @@
                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Hóa đơn</div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">27 hóa đơn</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $order }} hóa đơn
+                                </div>
                             </div>
 
                         </div>
@@ -62,7 +63,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Doanh thu</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">100 000 000d</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ number_format($sumMoney) }} ₫</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>

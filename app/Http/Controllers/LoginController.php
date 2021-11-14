@@ -39,7 +39,18 @@ class LoginController extends Controller
     }
     public function AdminDB()
     {
-        return view('backend/dashboard');
+
+        $product = DB::table('db_product')->get()->count();
+        $category = DB::table('db_category')->get()->count();
+        $order = DB::table('db_order')->get()->count(); 
+        $items = DB::table('db_order')->where('status',2)->select('money')->get();
+        $sumMoney  = 0;
+       
+        foreach ($items as $item) {
+            $sumMoney +=  $item->money;
+        }
+       
+        return view('backend/dashboard',compact('product','category','order','sumMoney'));
     }
     public function AdminLogin(Request $request)
     {

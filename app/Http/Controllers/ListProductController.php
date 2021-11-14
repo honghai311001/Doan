@@ -112,6 +112,20 @@ class ListProductController extends Controller
        return redirect()->action([ListProductController::class,'index'])->with('success',"Danh mục đã sửa thành công");
     }
 
+    public function checked($id)
+    {
+       
+        $data = Category::find($id);
+        if($data->status == 1)
+        {
+            $data->status = 0;
+        }
+        else{
+            $data->status = 1;
+        }
+        $data->save();
+        return redirect()->action([ListProductController::class,'index']);
+    }
     /**
      * Remove the specified resource from storage.
      *

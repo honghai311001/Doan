@@ -50,8 +50,9 @@
                                         <th>Tên sản phẩm</th>
                                         <th>Số lượng </th>
                                         <th>Loại sản phẩm</th>
+                                        <td>Giá bán</td>
                                         <th>Trạng thái</th>
-                                        <th>Nhập hàng</th>
+
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
@@ -70,22 +71,22 @@
                                             <td>
                                                 {{ $item->catid }}
                                             </td>
+                                            <td>{{ number_format($item->price_sale) }} ₫</td>
                                             <td style="width: 60px">
                                                 @if ($item->status == 1)
-                                                    <a href=""> <i class="far fa-check-circle fa-2x"
+                                                    <a href="/admin/product/checked/{{ $item->id }}"> <i
+                                                            class="far fa-check-circle fa-2x"
                                                             style="color: green"></i></a>
                                                 @else
-                                                    <a href=""><i class="far fa-times-circle fa-2x"
-                                                            style="color:red "></i></a>
+                                                    <a href="/admin/product/checked/{{ $item->id }}"><i
+                                                            class="far fa-times-circle fa-2x" style="color:red "></i></a>
                                                 @endif
 
                                             </td>
+
                                             <td>
-                                                <button type="button" class="btn-info"> nhập hàng</button>
-                                            </td>
-                                            <td>
-                                                <a href="/admin/product/edit/{{ $item->id }}"> <button type="button"
-                                                        class="btn btn-success">Sửa
+                                                <a href="/admin/product/edit/{{ $item->id }}"> <button
+                                                        type="button" class="btn btn-success">Sửa
                                                     </button></a>
                                                 <a href="/admin/product/delete/{{ $item->id }}"><button
                                                         class="btn btn-danger"

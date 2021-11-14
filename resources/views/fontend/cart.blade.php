@@ -142,7 +142,14 @@
 
                             <p>Nếu đặt online Bạn hãy đồng ý với điều khoản sử dụng & hướng dẫn hoàn trả.</p>
                         </div>
-                        <a href="/Checkout"><button>Đặt hàng</button></a>
+                        @if (Session::has('nguoi-dung') != null)
+                            <a href="/Checkout"><button>Đặt hàng</button></a>
+                        @else
+                            <div>
+                                <p>vui lòng <a href="/login">Đăng nhập</a> để mua hàng</p>
+                            </div>
+                        @endif
+
                     </div>
                 </div>
             </div>

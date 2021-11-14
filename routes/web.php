@@ -53,7 +53,7 @@ Route::post('admin/Lproduct/store',[ListProductController::class,'store']);
 Route::get('admin/Lproduct/delete/{id}',[ListProductController::class,'destroy']);
 Route::get('admin/Lproduct/edit/{id}',[ListProductController::class,'edit']);
 Route::post('admin/Lproduct/update/{id}',[ListProductController::class,'update']);
-
+Route::get('/admin/Lproduct/checked/{id}',[ListProductController::class,'checked']);
 
 
 Route::get('admin/producer', [ProducerController::class,'index'])->name('producer.index');
@@ -62,6 +62,8 @@ Route::post('admin/producer/store', [ProducerController::class,'store']);
 Route::get('admin/producer/edit/{id}', [ProducerController::class,'edit']);
 Route::post('admin/producer/update/{id}', [ProducerController::class,'update']);
 Route::get('/admin/producer/delete/{id}',[ProducerController::class,'destroy']);
+Route::get('/admin/producer/checked/{id}',[ProducerController::class,'checked']);
+
 
 Route::get('admin/product', [ProductController::class,'index'])->name('product.index');
 Route::get('admin/product/create', [ProductController::class,'create'])->name('product.create');
@@ -69,6 +71,7 @@ Route::get('admin/product/edit/{id}', [ProductController::class,'edit']);
 Route::patch('admin/product/update/{id}', [ProductController::class,'update']);
 Route::post('/admin/product/store',[ProductController::class,'store']);
 Route::get('/admin/product/delete/{id}',[ProductController::class,'destroy']);
+Route::get('/admin/product/checked/{id}',[ProductController::class,'checked']);
 
 
 Route::get('admin/customer',[CustomerController::class,'index'])->name('customer.index');
@@ -92,7 +95,12 @@ Route::get('/listOrder',[OrderController::class,'AdminOrder']);
 Route::get('/listOrder/thanhtoan/{id}',[OrderController::class,'SubmitOrder']);
 Route::get('/trackOrder',[OrderController::class,'TrackOrder']);
 Route::get('/trackOrder/Info/{id}',[OrderController::class,'TrackOrderInfo']);
+Route::get('/listOrder/huydon/{id}',[OrderController::class,'destroyOrder']);
+Route::get('/admin/order/oderdetail/{id}',[OrderController::class,'orderDetail']);
 
 
 // Danh mục//
 Route::get('/category/{orders}',[CategoryController::class,'indexCategory']);
+
+//Tìm kiếm
+Route::get('/search',[SearchController::class,'index']);

@@ -12,8 +12,8 @@ class IndexController extends Controller
  
    public function index()  
    {
-      $category = DB::table('db_category')->select('*')->get();
-      $items = Product::paginate(6);     
+      $category = DB::table('db_category')->where('status',1)->select('*')->get();
+      $items = Product::where('status', '=', 1)->orderBy('id','DESC')->paginate(6);     
    return view('/fontend/index',compact('items','category'));
   
    }

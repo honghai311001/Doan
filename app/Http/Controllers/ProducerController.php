@@ -15,8 +15,8 @@ class ProducerController extends Controller
      */
     public function index()
     {
-        $items = DB::table('db_producer')->select('*')->get();
-
+        $items = DB::table('db_producer')->orderBy('id','DESC')->select('*')->get();
+        // dd($items);
        return view('backend/Producer/index',compact('items'));
     }
 
@@ -53,6 +53,20 @@ class ProducerController extends Controller
 
     }
 
+    public function checked($id)
+    {
+       
+        $data = Producer::find($id);
+        if($data->status == 1)
+        {
+            $data->status = 0;
+        }
+        else{
+            $data->status = 1;
+        }
+        $data->save();
+        return redirect()->action([ProducerController::class,'index']);
+    }
     /**
      * Display the specified resource.
      *

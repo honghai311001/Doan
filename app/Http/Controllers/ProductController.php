@@ -73,7 +73,20 @@ class ProductController extends Controller
        $product->save();
        return Redirect()->action([ProductController::class,'index']);
     }
-
+    public function checked($id)
+    {
+       
+        $data = Product::find($id);
+        if($data->status == 1)
+        {
+            $data->status = 0;
+        }
+        else{
+            $data->status = 1;
+        }
+        $data->save();
+        return redirect()->action([ProductController::class,'index']);
+    }
     /**
      * Display the specified resource.
      *

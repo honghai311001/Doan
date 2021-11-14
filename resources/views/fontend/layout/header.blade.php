@@ -45,9 +45,9 @@
                 <!-- SEARCH BAR -->
                 <div class="col-md-6">
                     <div class="header-search">
-                        <form>
-
-                            <input class="input" placeholder="nhập tên sản phẩm">
+                        <form action="/search" method="get">
+                            @csrf
+                            <input class="input" name="Searchform" placeholder="nhập tên sản phẩm">
                             <button class="search-btn">Tìm Kiếm</button>
                         </form>
                     </div>

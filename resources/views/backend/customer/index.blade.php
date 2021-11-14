@@ -44,7 +44,7 @@
                                         <th>Tên khách hàng</th>
                                         <th>Email</th>
                                         <th>Điện thoại</th>
-                                        <th>Thao tác</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,10 +55,7 @@
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->phone }}</td>
 
-                                            <td>
-                                                <button type="button" class="btn-success"> Xem</button>
-                                                <button type="button" class=" btn-danger"> Xóa</button>
-                                            </td>
+
                                         </tr>
 
                                     @endforeach

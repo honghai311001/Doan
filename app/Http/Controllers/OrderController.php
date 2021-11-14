@@ -52,7 +52,15 @@ class OrderController extends Controller
                 'trash'=>1,
                 'status'=>1
             ]);
+
+            $data = Product::find($item['productInfo']->id);
+            $data->number = $data->number - $item['quanty'];
+            $data->save();
+            
+            
         }
+        
+     
         $request->Session()->forget('Cart');
         return Redirect()->action([OrderController::class,'TrackOrder']);
     }
@@ -68,6 +76,33 @@ class OrderController extends Controller
         $items = DB::table('db_order')->where('orderCode',$id)->update(['status' => 2]);
         
        return redirect()->action([OrderController::class,'AdminOrder']);
+    }
+    public function  destroyOrder($id)
+    {
+        $items = new Order;
+        $items = DB::table('db_order')->where('id',$id)->update(['status' => 0]);
+        $orderdetail = DB::table('db_orderdetail')->where('orderid',$id)->get();
+       
+        foreach ($orderdetail as $item) {
+            $product = Product::find($item->productid);
+            $product->number = $product->number + $item->count;
+            $product->save();
+        }
+        // $items = DB::table('db_orderdetail')->where('orderid',$id)->update(['status' => 0]);
+       return redirect()->action([OrderController::class,'AdminOrder']);
+    }
+   
+    public function   orderDetail($id)
+    {
+       $order = Order::find($id);
+       $items = DB::table('db_orderdetail')->where('orderid', $id )->orderBy('orderid','DESC')
+       ->leftJoin('db_product', 'db_orderdetail.productid', '=', 'db_product.id')
+       ->get();
+      
+    //     $items = DB::table('db_order')->where('id',$id)->update(['status' => 0]);
+    //     $items = DB::table('db_orderdetail')->where('orderid',$id)->update(['status' => 0]);
+    //    return redirect()->action([OrderController::class,'AdminOrder']);
+    return view('backend/Order/OrderDetail',compact('order','items'));
     }
     public function TrackOrder(Request $req)
     {
